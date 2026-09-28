@@ -4,7 +4,7 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = config("DJANGO_SECRET_KEY")
-# Basicamente confirman la integridad de los datos
+# Basicamente confirma la integridad de los datos
 # y valida la peticion del usuario hacia el servidor
 
 DEBUG = config("DJANGO_DEBUG", default=False, cast=bool)
@@ -69,3 +69,27 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_THROTTLE_RATES": {"user": "1000/day", "anon": "20/hour"},
 }
+
+ROOT_URLCONF = "config.urls"
+WSGI_APPLICATION = "config.wsgi.application"
+
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+
+LANGUAGE_CODE = "es-mx"
+TIME_ZONE = "UTC"   # Blue Team: guarda todo en UTC; convierte a hora local solo en el cliente
+USE_TZ = True
+STATIC_URL = "static/"
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
