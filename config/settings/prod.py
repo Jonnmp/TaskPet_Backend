@@ -12,5 +12,5 @@ CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", default="").split(",")
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-# 🔵 Fuerza HTTPS y marca cookies como "solo por HTTPS" — mitiga
+# Fuerza HTTPS y marca cookies como "solo por HTTPS" — mitiga
 # ataques de interceptación en redes no confiables (ej. WiFi público).
