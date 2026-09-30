@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import PetStats
 
-# Register your models here.
+@admin.register(PetStats)
+class PetStatsAdmin(admin.ModelAdmin):
+    list_display = ("user", "level", "experience", "last_interaction")
